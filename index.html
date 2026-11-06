@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>K Explore — Discover Experiences. Create Memories.</title>
+  <meta name="description" content="Discover premium experiences, conferences, concerts, workshops, and networking events. Book your pass seamlessly with K Explore.">
+  <meta name="keywords" content="events, conferences, music festivals, tech summits, workshops, Bangalore events, tickets, event management">
+  <meta name="author" content="K Explore Platform">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="K Explore — Event Discovery & Management">
+  <meta property="og:description" content="Find exciting events, connect with inspiring people, and be part of experiences that matter.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/logo.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="container announcement-content">
+      <span class="announcement-tag"><i class="fa-solid fa-sparkles"></i> New Season</span>
+      <p class="announcement-text">Explore over 500+ curated tech, music, business & culture events for 2026!</p>
+      <a href="#events" class="announcement-link">Browse Now <i class="fa-solid fa-arrow-right"></i></a>
+      <button class="announcement-close" id="announcementClose" aria-label="Close Announcement">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="K Explore Home">
+        <div class="logo-icon-wrap">
+          <img src="assets/images/logo.svg" alt="K Explore Logo" class="brand-logo-img">
+        </div>
+        <span class="brand-name">K <span>Explore</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active" data-nav="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#events" class="nav-link" data-nav="events">Explore Events</a>
+          </li>
+          <li class="nav-item">
+            <a href="#categories" class="nav-link" data-nav="categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-nav="about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Navbar Actions (Theme, Tickets, CTA) -->
+      <div class="nav-actions">
+        <!-- My Registrations Button -->
+        <button class="btn-icon nav-tickets-btn" id="openMyTicketsBtn" title="My Registered Events" aria-label="View My Tickets">
+          <i class="fa-solid fa-ticket"></i>
+          <span class="ticket-badge" id="ticketCountBadge">0</span>
+        </button>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button class="btn-icon theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon theme-icon-moon"></i>
+          <i class="fa-solid fa-sun theme-icon-sun"></i>
+        </button>
+
+        <!-- Primary Register CTA -->
+        <a href="#register" class="btn btn-primary nav-cta">
+          <span>Register Now</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-inner">
+        <ul class="mobile-nav-list">
+          <li><a href="#home" class="mobile-nav-link active" data-nav="home"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#events" class="mobile-nav-link" data-nav="events"><i class="fa-solid fa-compass"></i> Explore Events</a></li>
+          <li><a href="#categories" class="mobile-nav-link" data-nav="categories"><i class="fa-solid fa-shapes"></i> Categories</a></li>
+          <li><a href="#about" class="mobile-nav-link" data-nav="about"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+          <li><a href="#contact" class="mobile-nav-link" data-nav="contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <button class="btn btn-outline mobile-tickets-btn" id="mobileOpenTicketsBtn">
+            <i class="fa-solid fa-ticket"></i> My Registered Tickets (<span id="mobileTicketCount">0</span>)
+          </button>
+          <a href="#register" class="btn btn-primary btn-block mobile-register-cta">
+            <span>Register for Events</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Backdrop Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-shapes">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Live Badge -->
+          <div class="hero-badge reveal-item">
+            <span class="hero-badge-dot"></span>
+            <span>Premium Event Discovery Platform</span>
+            <span class="hero-badge-tag">2026 Edition</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-headline reveal-item">
+            Discover Experiences.<br>
+            <span class="gradient-text">Create Memories.</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p class="hero-subheading reveal-item">
+            Find exciting events, connect with inspiring people, and be part of experiences that matter. From cutting-edge tech summits to electrifying music fests, unlock your next unforgettable adventure.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero-cta-group reveal-item">
+            <a href="#events" class="btn btn-primary btn-lg">
+              <span>Explore Events</span>
+              <i class="fa-solid fa-compass"></i>
+            </a>
+            <a href="#about" class="btn btn-outline btn-lg">
+              <span>Discover More</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
+
+          <!-- Hero Search Quick Bar -->
+          <div class="hero-quick-search reveal-item">
+            <div class="quick-search-box">
+              <i class="fa-solid fa-magnifying-glass quick-search-icon"></i>
+              <input type="text" id="heroSearchInput" placeholder="Search by title, artist, tech, or venue..." aria-label="Quick event search">
+              <button class="btn btn-primary btn-sm" id="heroSearchBtn">
+                <span>Find Event</span>
+              </button>
+            </div>
+            <div class="quick-tags">
+              <span class="quick-tag-label">Trending:</span>
+              <button class="quick-tag" data-category="Technology">#AI Summit</button>
+              <button class="quick-tag" data-category="Music">#Music Fest</button>
+              <button class="quick-tag" data-category="Business">#Startup Pitch</button>
+              <button class="quick-tag" data-category="Workshops">#Design Systems</button>
+            </div>
+          </div>
+
+          <!-- Platform Statistics -->
+          <div class="hero-stats reveal-item">
+            <div class="stat-card">
+              <div class="stat-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-target="1250">1,250+</span>
+                <span class="stat-label">Events Hosted</span>
+              </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap"><i class="fa-solid fa-users"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-target="85000">85,000+</span>
+                <span class="stat-label">Attendees Joined</span>
+              </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-target="180">180+</span>
+                <span class="stat-label">Active Communities</span>
+              </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap"><i class="fa-solid fa-star"></i></div>
+              <div class="stat-info">
+                <span class="stat-number" data-target="99">4.9/5</span>
+                <span class="stat-label">Attendee Rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase Card -->
+        <div class="hero-visual reveal-item">
+          <div class="spotlight-card">
+            <div class="spotlight-badge">
+              <i class="fa-solid fa-bolt"></i> Spotlight Event
+            </div>
+            <div class="spotlight-image-wrap">
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80" alt="Global AI & Web3 Summit 2026" class="spotlight-image">
+              <span class="spotlight-category">Technology</span>
+            </div>
+            <div class="spotlight-details">
+              <div class="spotlight-countdown-chip" id="spotlightCountdown">
+                <i class="fa-regular fa-clock"></i>
+                <span id="spotlightTimerText">Loading countdown...</span>
+              </div>
+              <h3 class="spotlight-title">Global AI & Web3 Innovators Summit 2026</h3>
+              <div class="spotlight-meta">
+                <span><i class="fa-regular fa-calendar"></i> Nov 25, 2026</span>
+                <span><i class="fa-solid fa-location-dot"></i> Cyber City, Bangalore</span>
+              </div>
+              <div class="spotlight-actions">
+                <button class="btn btn-outline btn-sm spotlight-details-btn" data-event-id="1">View Details</button>
+                <button class="btn btn-primary btn-sm spotlight-register-btn" data-event-id="1">Register Now</button>
+              </div>
+            </div>
+
+            <!-- Floating Micro Cards -->
+            <div class="floating-badge badge-top-right">
+              <i class="fa-solid fa-shield-check"></i>
+              <div>
+                <strong>100% Verified</strong>
+                <span>Official Partner</span>
+              </div>
+            </div>
+            <div class="floating-badge badge-bottom-left">
+              <div class="avatar-group">
+                <span class="avatar-pill">👩‍💻</span>
+                <span class="avatar-pill">👨‍🎨</span>
+                <span class="avatar-pill">🚀</span>
+              </div>
+              <div>
+                <strong>420+ Joined</strong>
+                <span>Limited Seats</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED EVENTS SECTION -->
+    <section class="events-section" id="events">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <span class="section-badge"><i class="fa-solid fa-sparkles"></i> Curated Experiences</span>
+          <h2 class="section-title">Explore Featured Events</h2>
+          <p class="section-subtitle">
+            Hand-picked gatherings, high-impact conferences, vibrant music fests, and skill-building workshops tailored for curious minds.
+          </p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="filters-card">
+          <!-- Search Bar -->
+          <div class="search-bar-row">
+            <div class="search-input-wrap">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="eventSearchInput" placeholder="Search events by name, keywords, venue, or speakers..." autocomplete="off">
+              <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear Search Input" style="display: none;">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Secondary Controls (Date Filter & Sort) -->
+            <div class="filter-dropdowns">
+              <div class="select-wrap">
+                <label for="dateFilterSelect" class="sr-only">Filter by Date</label>
+                <i class="fa-regular fa-calendar-days select-icon"></i>
+                <select id="dateFilterSelect" aria-label="Filter events by date timeline">
+                  <option value="all">All Dates</option>
+                  <option value="upcoming">Upcoming (Next 30 Days)</option>
+                  <option value="november">November 2026</option>
+                  <option value="december">December 2026</option>
+                </select>
+              </div>
+
+              <div class="select-wrap">
+                <label for="sortSelect" class="sr-only">Sort Events</label>
+                <i class="fa-solid fa-arrow-down-short-wide select-icon"></i>
+                <select id="sortSelect" aria-label="Sort events">
+                  <option value="soonest">Sort: Date (Soonest)</option>
+                  <option value="latest">Sort: Date (Later)</option>
+                  <option value="title-asc">Sort: Title (A-Z)</option>
+                  <option value="title-desc">Sort: Title (Z-A)</option>
+                </select>
+              </div>
+
+              <button class="btn btn-secondary clear-all-btn" id="clearAllFiltersBtn" title="Reset all search & category filters">
+                <i class="fa-solid fa-rotate-left"></i>
+                <span>Reset</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="category-tabs-wrap">
+            <div class="category-tabs" id="categoryTabs" role="tablist">
+              <button class="cat-tab active" data-category="all" role="tab" aria-selected="true">
+                <i class="fa-solid fa-border-all"></i>
+                <span>All Events</span>
+                <span class="cat-count" id="count-all">0</span>
+              </button>
+              <button class="cat-tab" data-category="Technology" role="tab" aria-selected="false">
+                <i class="fa-solid fa-laptop-code"></i>
+                <span>Technology</span>
+                <span class="cat-count" id="count-technology">0</span>
+              </button>
+              <button class="cat-tab" data-category="Music" role="tab" aria-selected="false">
+                <i class="fa-solid fa-music"></i>
+                <span>Music</span>
+                <span class="cat-count" id="count-music">0</span>
+              </button>
+              <button class="cat-tab" data-category="Workshops" role="tab" aria-selected="false">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Workshops</span>
+                <span class="cat-count" id="count-workshops">0</span>
+              </button>
+              <button class="cat-tab" data-category="Business" role="tab" aria-selected="false">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Business</span>
+                <span class="cat-count" id="count-business">0</span>
+              </button>
+              <button class="cat-tab" data-category="Sports" role="tab" aria-selected="false">
+                <i class="fa-solid fa-person-running"></i>
+                <span>Sports</span>
+                <span class="cat-count" id="count-sports">0</span>
+              </button>
+              <button class="cat-tab" data-category="Art & Culture" role="tab" aria-selected="false">
+                <i class="fa-solid fa-palette"></i>
+                <span>Art & Culture</span>
+                <span class="cat-count" id="count-art">0</span>
+              </button>
+              <button class="cat-tab" data-category="Education" role="tab" aria-selected="false">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Education</span>
+                <span class="cat-count" id="count-education">0</span>
+              </button>
+              <button class="cat-tab" data-category="Networking" role="tab" aria-selected="false">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Networking</span>
+                <span class="cat-count" id="count-networking">0</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Filter Status Indicator -->
+          <div class="active-filter-status" id="filterStatus">
+            <span class="results-count" id="resultsCount">Showing 8 of 8 events</span>
+            <div class="active-tags-list" id="activeTagsList"></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Events Grid -->
+        <div class="events-grid" id="eventsGrid" aria-live="polite">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon-wrap">
+            <i class="fa-solid fa-calendar-xmark"></i>
+          </div>
+          <h3 class="empty-title">No Events Found</h3>
+          <p class="empty-text">We couldn't find any events matching your search criteria or category filter. Try refining your keywords or clear your filters to view all upcoming events.</p>
+          <button class="btn btn-primary" id="resetEmptyBtn">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Clear Filters & View All</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT CATEGORIES SHOWCASE SECTION -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge"><i class="fa-solid fa-layer-group"></i> Explore By Passion</span>
+          <h2 class="section-title">Event Categories</h2>
+          <p class="section-subtitle">
+            Whatever your passion, find like-minded people and unforgettable stages built for you.
+          </p>
+        </div>
+
+        <div class="categories-grid">
+          <!-- Category 1: Tech -->
+          <div class="category-card" data-category-target="Technology">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-tech"><i class="fa-solid fa-laptop-code"></i></div>
+              <h3 class="cat-title">Technology</h3>
+              <p class="cat-desc">AI summits, dev hackathons, Web3 & cloud architectures.</p>
+              <span class="cat-explore-btn">Browse Tech <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 2: Music -->
+          <div class="category-card" data-category-target="Music">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-music"><i class="fa-solid fa-music"></i></div>
+              <h3 class="cat-title">Music</h3>
+              <p class="cat-desc">Indie concerts, electronic fests, acoustic jam sessions.</p>
+              <span class="cat-explore-btn">Browse Music <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 3: Workshops -->
+          <div class="category-card" data-category-target="Workshops">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-workshops"><i class="fa-solid fa-chalkboard-user"></i></div>
+              <h3 class="cat-title">Workshops</h3>
+              <p class="cat-desc">Hands-on UX masterclasses, coding bootcamps & skill labs.</p>
+              <span class="cat-explore-btn">Browse Workshops <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 4: Business -->
+          <div class="category-card" data-category-target="Business">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-business"><i class="fa-solid fa-briefcase"></i></div>
+              <h3 class="cat-title">Business</h3>
+              <p class="cat-desc">VC pitch galas, startup expos, and founder roundtables.</p>
+              <span class="cat-explore-btn">Browse Business <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 5: Sports -->
+          <div class="category-card" data-category-target="Sports">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-sports"><i class="fa-solid fa-person-running"></i></div>
+              <h3 class="cat-title">Sports & Fitness</h3>
+              <p class="cat-desc">City marathons, cycling rallies, and crossfit tournaments.</p>
+              <span class="cat-explore-btn">Browse Sports <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 6: Art & Culture -->
+          <div class="category-card" data-category-target="Art & Culture">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-art"><i class="fa-solid fa-palette"></i></div>
+              <h3 class="cat-title">Art & Culture</h3>
+              <p class="cat-desc">Digital biennales, theater plays, sculpture galleries & heritage walks.</p>
+              <span class="cat-explore-btn">Browse Art <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 7: Education -->
+          <div class="category-card" data-category-target="Education">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-education"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h3 class="cat-title">Education</h3>
+              <p class="cat-desc">EdTech symposiums, STEM youth challenges & research summits.</p>
+              <span class="cat-explore-btn">Browse Education <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Category 8: Networking -->
+          <div class="category-card" data-category-target="Networking">
+            <div class="cat-card-bg" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="cat-card-overlay"></div>
+            <div class="cat-card-content">
+              <div class="cat-icon-badge cat-networking"><i class="fa-solid fa-handshake"></i></div>
+              <h3 class="cat-title">Networking</h3>
+              <p class="cat-desc">Executive rooftop mixers, speed networking & creator meetups.</p>
+              <span class="cat-explore-btn">Browse Networking <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT REGISTRATION SECTION -->
+    <section class="registration-section" id="register">
+      <div class="container">
+        <div class="registration-layout">
+          <!-- Left Info Column -->
+          <div class="reg-info-column reveal-item">
+            <span class="section-badge"><i class="fa-solid fa-shield-check"></i> Instant & Secure</span>
+            <h2 class="reg-heading">Reserve Your Spot In Seconds</h2>
+            <p class="reg-subtext">
+              Join thousands of enthusiastic creators, builders, and professionals. When you register with K Explore, your pass is instantly generated and stored safely in your browser.
+            </p>
+
+            <div class="reg-features-list">
+              <div class="reg-feature-item">
+                <div class="reg-feature-icon"><i class="fa-solid fa-qrcode"></i></div>
+                <div>
+                  <h4>Instant E-Pass Generation</h4>
+                  <p>Get a digital pass with unique ticket ID ready to present at the venue.</p>
+                </div>
+              </div>
+              <div class="reg-feature-item">
+                <div class="reg-feature-icon"><i class="fa-solid fa-database"></i></div>
+                <div>
+                  <h4>Persistent Offline Storage</h4>
+                  <p>Your tickets stay safely accessible on your device anytime via Local Storage.</p>
+                </div>
+              </div>
+              <div class="reg-feature-item">
+                <div class="reg-feature-icon"><i class="fa-solid fa-bell"></i></div>
+                <div>
+                  <h4>Real-time Event Alerts</h4>
+                  <p>Receive schedule updates, venue hints, and speaker timing notifications.</p>
+                </div>
+              </div>
+              <div class="reg-feature-item">
+                <div class="reg-feature-icon"><i class="fa-solid fa-ban"></i></div>
+                <div>
+                  <h4>Zero Duplicate Booking Risk</h4>
+                  <p>Built-in smart duplicate prevention guards your seat and prevents double billing.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Guarantee Box -->
+            <div class="guarantee-box">
+              <i class="fa-solid fa-award"></i>
+              <div>
+                <strong>K Explore Peace-of-Mind Guarantee</strong>
+                <span>Free cancellation up to 48 hours before the event starts.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Form Column -->
+          <div class="reg-form-column reveal-item">
+            <div class="form-card">
+              <div class="form-card-header">
+                <div class="form-title-wrap">
+                  <h3 class="form-title">Event Registration Form</h3>
+                  <p class="form-subtitle">Fill in your information to secure your access ticket.</p>
+                </div>
+                <span class="form-step-pill">Fast Pass</span>
+              </div>
+
+              <form id="registrationForm" class="modern-form" novalidate>
+                <!-- Selected Event -->
+                <div class="form-group" id="group-regEvent">
+                  <label for="regEvent" class="form-label">
+                    <span>Select Event</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-calendar-check input-icon"></i>
+                    <select id="regEvent" name="event" class="form-input" required>
+                      <option value="">-- Choose an upcoming event --</option>
+                      <!-- Dynamically populated options -->
+                    </select>
+                  </div>
+                  <span class="error-msg" id="error-regEvent">Please choose an event to register.</span>
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-group" id="group-regName">
+                  <label for="regName" class="form-label">
+                    <span>Full Name</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="regName" name="name" class="form-input" placeholder="e.g. Aditi Sharma" required autocomplete="name">
+                  </div>
+                  <span class="error-msg" id="error-regName">Please enter your full name (minimum 2 characters).</span>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group" id="group-regEmail">
+                  <label for="regEmail" class="form-label">
+                    <span>Email Address</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input type="email" id="regEmail" name="email" class="form-input" placeholder="e.g. aditi@example.com" required autocomplete="email">
+                  </div>
+                  <span class="error-msg" id="error-regEmail">Please enter a valid email address (e.g. name@domain.com).</span>
+                </div>
+
+                <!-- Phone Number (Indian mobile 10 digits) -->
+                <div class="form-group" id="group-regPhone">
+                  <label for="regPhone" class="form-label">
+                    <span>Phone Number</span> <span class="required-star">*</span>
+                    <span class="input-hint">(10-digit Indian Mobile)</span>
+                  </label>
+                  <div class="phone-input-group">
+                    <span class="phone-prefix">+91</span>
+                    <div class="input-icon-wrap flex-1">
+                      <i class="fa-solid fa-phone input-icon"></i>
+                      <input type="tel" id="regPhone" name="phone" class="form-input" placeholder="9876543210" maxlength="10" required autocomplete="tel">
+                    </div>
+                  </div>
+                  <span class="error-msg" id="error-regPhone">Please enter a valid 10-digit Indian mobile number (starting with 6, 7, 8, or 9).</span>
+                </div>
+
+                <!-- Terms and Conditions Checkbox -->
+                <div class="form-group checkbox-group" id="group-regTerms">
+                  <label class="custom-checkbox-label">
+                    <input type="checkbox" id="regTerms" name="terms" required>
+                    <span class="custom-checkbox-box"><i class="fa-solid fa-check"></i></span>
+                    <span class="checkbox-text">
+                      I accept the <a href="#termsModal" id="openTermsLink" class="inline-link">Terms & Conditions</a> and agree to receive digital event confirmations.
+                    </span>
+                  </label>
+                  <span class="error-msg" id="error-regTerms">You must accept the terms and conditions to proceed.</span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitRegBtn">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Confirm Registration</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Left Column -->
+          <div class="about-content reveal-item">
+            <span class="section-badge"><i class="fa-solid fa-compass"></i> Our Story & Mission</span>
+            <h2 class="section-title text-left">Empowering Curious Minds to Gather, Learn & Grow</h2>
+            <p class="about-paragraph">
+              Founded with the vision to make real-world connection effortless and inspiring, <strong>K Explore</strong> is a premier event discovery and community management ecosystem. We believe that life's most transformative moments happen when passionate individuals share a room, an idea, or a melody.
+            </p>
+            <p class="about-paragraph">
+              Whether you are an aspiring engineer diving into quantum algorithms, a music lover feeling the pulse of open-air synths, or a founder pitching your dream startup, K Explore bridges the gap between visionaries and world-class experiences.
+            </p>
+
+            <!-- Value Pillars -->
+            <div class="values-grid">
+              <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-certificate"></i></div>
+                <div>
+                  <h4>100% Curated Quality</h4>
+                  <p>Every conference, concert, and workshop is thoroughly vetted for authenticity and excellence.</p>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <div>
+                  <h4>Seamless Frictionless Booking</h4>
+                  <p>No tedious accounts or hidden convenience surcharges. Book verified passes in under 30 seconds.</p>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+                <div>
+                  <h4>Community-First Philosophy</h4>
+                  <p>Connecting grassroots creators and organizers directly with audiences who care.</p>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-headset"></i></div>
+                <div>
+                  <h4>Dedicated Attendee Support</h4>
+                  <p>Around-the-clock assistance to ensure your check-in, parking, and experience run smoothly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (Image Showcase & Impact Card) -->
+          <div class="about-visual reveal-item">
+            <div class="about-image-stack">
+              <div class="about-img-main">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Audience at an inspiring K Explore conference">
+              </div>
+              <div class="about-img-secondary">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80" alt="Celebration at a live concert">
+              </div>
+              <div class="about-stat-badge">
+                <div class="about-stat-number">4.9 ★</div>
+                <div class="about-stat-text">Loved by 85k+ attendees worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge"><i class="fa-solid fa-comments"></i> Get In Touch</span>
+          <h2 class="section-title">Let's Connect & Collaborate</h2>
+          <p class="section-subtitle">
+            Have questions about an upcoming event, need assistance with your booking, or want to list your community on K Explore? Our team is here to help.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Demo Contact Details Cards -->
+          <div class="contact-info-col reveal-item">
+            <div class="contact-card demo-notice-card">
+              <div class="demo-tag"><i class="fa-solid fa-circle-info"></i> Official Demo Support</div>
+              <h3>Reach Our Concierge Team</h3>
+              <p>We typically respond within 2-4 business hours.</p>
+            </div>
+
+            <div class="contact-info-items">
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="contact-meta">
+                  <span class="meta-label">Email Support</span>
+                  <a href="mailto:support@kexplore-events.demo" class="meta-val">support@kexplore-events.demo</a>
+                  <span class="meta-sub">Direct response from our concierge</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="contact-meta">
+                  <span class="meta-label">Call / WhatsApp Support</span>
+                  <a href="tel:+919876543210" class="meta-val">+91 98765 43210</a>
+                  <span class="meta-sub">Mon - Sat: 9:00 AM - 7:00 PM IST</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="contact-meta">
+                  <span class="meta-label">Headquarters</span>
+                  <span class="meta-val">K Explore Innovation Labs, Level 4</span>
+                  <span class="meta-sub">Cyber Hub, Tech City, Bangalore, India</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <div class="contact-meta">
+                  <span class="meta-label">Event Organizers & Partners</span>
+                  <a href="mailto:partnerships@kexplore-events.demo" class="meta-val">partnerships@kexplore-events.demo</a>
+                  <span class="meta-sub">List your venue or manage ticket sales</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Contact Form -->
+          <div class="contact-form-col reveal-item">
+            <div class="form-card">
+              <div class="form-card-header">
+                <div>
+                  <h3 class="form-title">Send Us a Message</h3>
+                  <p class="form-subtitle">Fill out the quick inquiry form below.</p>
+                </div>
+              </div>
+
+              <form id="contactForm" class="modern-form" novalidate>
+                <!-- Full Name -->
+                <div class="form-group" id="group-contactName">
+                  <label for="contactName" class="form-label">
+                    <span>Your Full Name</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Rahul Verma" required>
+                  </div>
+                  <span class="error-msg" id="error-contactName">Please enter your name (at least 2 characters).</span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group" id="group-contactEmail">
+                  <label for="contactEmail" class="form-label">
+                    <span>Email Address</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input type="email" id="contactEmail" name="email" class="form-input" placeholder="e.g. rahul@example.com" required>
+                  </div>
+                  <span class="error-msg" id="error-contactEmail">Please enter a valid email address.</span>
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group" id="group-contactSubject">
+                  <label for="contactSubject" class="form-label">
+                    <span>Subject</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-tag input-icon"></i>
+                    <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="e.g. Question regarding AI Summit pass" required>
+                  </div>
+                  <span class="error-msg" id="error-contactSubject">Please enter a subject (minimum 3 characters).</span>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group" id="group-contactMessage">
+                  <label for="contactMessage" class="form-label">
+                    <span>Message</span> <span class="required-star">*</span>
+                  </label>
+                  <div class="input-icon-wrap textarea-wrap">
+                    <i class="fa-solid fa-message input-icon"></i>
+                    <textarea id="contactMessage" name="message" class="form-input" rows="4" placeholder="How can we help you today?" required></textarea>
+                  </div>
+                  <span class="error-msg" id="error-contactMessage">Please enter your message (at least 10 characters).</span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary btn-block" id="submitContactBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Send Message</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <!-- Brand Info -->
+        <div class="footer-col brand-col">
+          <a href="#home" class="brand-logo footer-logo">
+            <div class="logo-icon-wrap">
+              <img src="assets/images/logo.svg" alt="K Explore Logo" class="brand-logo-img">
+            </div>
+            <span class="brand-name">K <span>Explore</span></span>
+          </a>
+          <p class="footer-desc">
+            The modern standard for discovering high-impact events, vibrant music festivals, and immersive learning masterclasses across the globe.
+          </p>
+          <div class="social-links">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter / X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Links -->
+        <div class="footer-col">
+          <h4 class="footer-title">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#events"><i class="fa-solid fa-chevron-right"></i> Explore Events</a></li>
+            <li><a href="#categories"><i class="fa-solid fa-chevron-right"></i> Browse Categories</a></li>
+            <li><a href="#register"><i class="fa-solid fa-chevron-right"></i> Event Registration</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Event Categories -->
+        <div class="footer-col">
+          <h4 class="footer-title">Top Categories</h4>
+          <ul class="footer-links" id="footerCategoryLinks">
+            <li><a href="#events" data-footer-category="Technology"><i class="fa-solid fa-chevron-right"></i> Technology & AI</a></li>
+            <li><a href="#events" data-footer-category="Music"><i class="fa-solid fa-chevron-right"></i> Music Festivals</a></li>
+            <li><a href="#events" data-footer-category="Workshops"><i class="fa-solid fa-chevron-right"></i> UX & Dev Workshops</a></li>
+            <li><a href="#events" data-footer-category="Business"><i class="fa-solid fa-chevron-right"></i> Startup & Business Galas</a></li>
+            <li><a href="#events" data-footer-category="Sports"><i class="fa-solid fa-chevron-right"></i> Sports & Marathons</a></li>
+            <li><a href="#events" data-footer-category="Art & Culture"><i class="fa-solid fa-chevron-right"></i> Art & Culture Expos</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-col newsletter-col">
+          <h4 class="footer-title">Stay Inspired</h4>
+          <p class="newsletter-desc">Subscribe to receive weekly curated event drops, secret discounts, and early access passes.</p>
+          <form id="newsletterForm" class="newsletter-form" novalidate>
+            <div class="newsletter-input-group">
+              <input type="email" id="newsletterEmail" placeholder="Enter your email" required aria-label="Subscribe to newsletter">
+              <button type="submit" class="btn btn-primary btn-icon-only" aria-label="Subscribe">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+            <span class="newsletter-feedback" id="newsletterFeedback"></span>
+          </form>
+          <div class="secure-badge">
+            <i class="fa-solid fa-lock"></i> We respect your privacy. No spam ever.
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; <span id="currentYear">2026</span> <strong>K Explore</strong>. Designed with passion for unforgettable real-world experiences.
+        </p>
+        <div class="footer-legal">
+          <a href="#termsModal" id="footerTermsLink">Terms of Service</a>
+          <span>•</span>
+          <a href="#termsModal" id="footerPrivacyLink">Privacy Policy</a>
+          <span>•</span>
+          <span class="demo-tag-pill">Academic & Evaluation Project</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Back to top of page" title="Scroll back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- EVENT DETAILS MODAL -->
+  <div class="modal-overlay" id="eventDetailsModal" role="dialog" aria-modal="true" aria-labelledby="modalEventTitle" style="display: none;">
+    <div class="modal-container event-details-modal-box">
+      <!-- Modal Close Button -->
+      <button class="modal-close-btn" id="closeEventModalBtn" aria-label="Close Event Details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Body -->
+      <div class="modal-scroll-content" id="modalDetailsContent">
+        <!-- Dynamically populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- REGISTRATION CONFIRMATION & DIGITAL PASS MODAL -->
+  <div class="modal-overlay" id="registrationSuccessModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" style="display: none;">
+    <div class="modal-container success-modal-box">
+      <button class="modal-close-btn" id="closeSuccessModalBtn" aria-label="Close Success Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-scroll-content">
+        <div class="success-header text-center">
+          <div class="success-icon-animation">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <span class="success-chip">Registration Confirmed</span>
+          <h3 class="success-title" id="successModalTitle">You're All Set!</h3>
+          <p class="success-msg">
+            Your pass for <strong id="successEventTitle" class="gradient-text">Event Name</strong> has been successfully booked and saved to your device.
+          </p>
+        </div>
+
+        <!-- Rendered Digital Ticket / Pass -->
+        <div class="ticket-card-printable" id="printableTicket">
+          <div class="ticket-header">
+            <div class="ticket-brand">
+              <img src="assets/images/logo.svg" alt="K Explore" class="ticket-logo">
+              <span>K <strong>Explore Pass</strong></span>
+            </div>
+            <div class="ticket-type-pill" id="ticketCategoryPill">Technology</div>
+          </div>
+
+          <div class="ticket-body">
+            <h4 class="ticket-event-name" id="ticketEventName">Event Title</h4>
+            <div class="ticket-grid">
+              <div class="ticket-cell">
+                <span class="cell-label">Attendee</span>
+                <span class="cell-value" id="ticketAttendeeName">Aditi Sharma</span>
+              </div>
+              <div class="ticket-cell">
+                <span class="cell-label">Pass Reference</span>
+                <span class="cell-value ticket-code" id="ticketId">KEX-2026-9481</span>
+              </div>
+              <div class="ticket-cell">
+                <span class="cell-label">Date & Time</span>
+                <span class="cell-value" id="ticketDateTime">Nov 25, 2026 • 09:00 AM</span>
+              </div>
+              <div class="ticket-cell">
+                <span class="cell-label">Venue</span>
+                <span class="cell-value" id="ticketVenue">Cyber City, Bangalore</span>
+              </div>
+              <div class="ticket-cell">
+                <span class="cell-label">Email</span>
+                <span class="cell-value" id="ticketAttendeeEmail">aditi@example.com</span>
+              </div>
+              <div class="ticket-cell">
+                <span class="cell-label">Mobile</span>
+                <span class="cell-value" id="ticketAttendeePhone">+91 9876543210</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-stub">
+            <div class="barcode-graphic">
+              <div class="barcode-line"></div><div class="barcode-line wide"></div><div class="barcode-line"></div>
+              <div class="barcode-line thin"></div><div class="barcode-line wide"></div><div class="barcode-line"></div>
+              <div class="barcode-line wide"></div><div class="barcode-line thin"></div><div class="barcode-line"></div>
+              <div class="barcode-line wide"></div><div class="barcode-line"></div><div class="barcode-line thin"></div>
+            </div>
+            <span class="barcode-number" id="ticketBarcodeNumber">890124578921</span>
+            <span class="ticket-verification-note"><i class="fa-solid fa-shield-check"></i> Present at gate for instant check-in</span>
+          </div>
+        </div>
+
+        <!-- Success Modal Actions -->
+        <div class="success-actions">
+          <button class="btn btn-primary" id="printTicketBtn">
+            <i class="fa-solid fa-print"></i>
+            <span>Print / Save Pass</span>
+          </button>
+          <button class="btn btn-secondary" id="registerAnotherBtn">
+            <i class="fa-solid fa-plus"></i>
+            <span>Register for Another Event</span>
+          </button>
+          <button class="btn btn-outline" id="viewAllTicketsFromSuccessBtn">
+            <i class="fa-solid fa-ticket"></i>
+            <span>View All My Tickets</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- "MY REGISTRATIONS" MODAL / TICKET MANAGER -->
+  <div class="modal-overlay" id="myRegistrationsModal" role="dialog" aria-modal="true" aria-labelledby="myRegTitle" style="display: none;">
+    <div class="modal-container my-tickets-modal-box">
+      <button class="modal-close-btn" id="closeMyTicketsBtn" aria-label="Close My Tickets">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-scroll-content">
+        <div class="modal-header-section">
+          <div class="icon-bubble"><i class="fa-solid fa-ticket"></i></div>
+          <div>
+            <h3 class="modal-title" id="myRegTitle">My Event Registrations</h3>
+            <p class="modal-subtitle">All your confirmed passes stored locally in your browser.</p>
+          </div>
+        </div>
+
+        <!-- Tickets List -->
+        <div class="tickets-stored-list" id="ticketsStoredList">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Empty Tickets State -->
+        <div class="empty-tickets-view" id="emptyTicketsView" style="display: none;">
+          <div class="empty-icon-wrap"><i class="fa-solid fa-ticket-simple"></i></div>
+          <h4>No Registrations Found Yet</h4>
+          <p>You haven't registered for any events yet. Explore our featured events and book your access pass today!</p>
+          <a href="#events" class="btn btn-primary" id="exploreFromEmptyTickets">
+            <i class="fa-solid fa-compass"></i> Explore Upcoming Events
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS AND CONDITIONS MODAL -->
+  <div class="modal-overlay" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" style="display: none;">
+    <div class="modal-container terms-modal-box">
+      <button class="modal-close-btn" id="closeTermsBtn" aria-label="Close Terms">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-scroll-content terms-body">
+        <h3 id="termsTitle">K Explore Terms & Conditions</h3>
+        <p class="terms-meta">Effective Date: November 2026 | Version 2.4</p>
+        
+        <h4>1. Event Registration & Ticketing</h4>
+        <p>By registering for any event through K Explore, you confirm that the contact information provided (Full Name, Email Address, and 10-digit Indian Mobile Number) is accurate. Registrations are stored locally on your device for immediate verification.</p>
+        
+        <h4>2. Verification & Check-in</h4>
+        <p>Your digital pass reference number (e.g. KEX-2026-XXXX) must be presented upon entry at the event venue. Entry is governed by the respective event organizer's code of conduct and safety regulations.</p>
+        
+        <h4>3. Cancellations & Rescheduling</h4>
+        <p>In the event of cancellation or rescheduling by the organizer, registered attendees will receive immediate email notifications. You can cancel your saved local registration anytime using the "My Tickets" manager.</p>
+
+        <h4>4. Code of Conduct</h4>
+        <p>K Explore strictly fosters inclusive, safe, and respectful environments for all attendees regardless of background, gender, or orientation.</p>
+
+        <div class="terms-actions">
+          <button class="btn btn-primary" id="acceptTermsModalBtn">Understood & Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <!-- Main Application Script (Vanilla ES6+) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
