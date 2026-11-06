@@ -1748,3 +1748,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('%c K EXPLORE — Event Management Platform initialized successfully. ', 'background: #4f46e5; color: #fff; font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 4px;');
 });
+
